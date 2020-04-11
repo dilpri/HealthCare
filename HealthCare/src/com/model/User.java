@@ -22,36 +22,59 @@ public class User {
 		return con;
 	}
 
+	/*
+	 * public String insertUser(String username, String password, String email,
+	 * String address, String phoneNo, String age, String sex) { String output = "";
+	 * try { Connection con = connect();
+	 * 
+	 * if (con == null) { return
+	 * "Error while connecting to the database for inserting"; }
+	 * 
+	 * String query =
+	 * "insert into user ('userID','username', 'password', 'email', 'address', 'phoneNo', 'age', 'sex')"
+	 * + "values (?,?,?,?,?,?,?,?)";
+	 * 
+	 * PreparedStatement ps = con.prepareStatement(query);
+	 * 
+	 * ps.setInt(1, 0); ps.setString(2, username); ps.setString(3, password);
+	 * ps.setString(4, email); ps.setString(5, address); ps.setString(6, phoneNo);
+	 * ps.setString(7, age); ps.setString(8, sex); ps.execute(); con.close();
+	 * 
+	 * output = "Inserted Successfully";
+	 * 
+	 * } catch (Exception e) { output = "Error while inserting the user";
+	 * System.err.println(e.getMessage()); } return output; }
+	 */
+
+	// Insert
 	public String insertUser(String username, String password, String email, String address, String phoneNo, String age,
 			String sex) {
 		String output = "";
 		try {
 			Connection con = connect();
-
 			if (con == null) {
-				return "Error while connecting to the database for inserting";
+				return "Error while connecting to the database for inserting.";
 			}
+			// create a prepared statement
+			String query = " insert into user (`userID`,`username`,`password`,`email`,`address`,`phoneNo`,`age`,`sex`)"
+					+ " values (?, ?, ?, ?, ?, ?, ?, ?)";
+			PreparedStatement preparedStmt = con.prepareStatement(query);
+			// binding values
+			preparedStmt.setInt(1, 0);
+			preparedStmt.setString(2, username);
+			preparedStmt.setString(3, password);
+			preparedStmt.setString(4, email);
+			preparedStmt.setString(5, address);
+			preparedStmt.setString(6, phoneNo);
+			preparedStmt.setString(7, age);
+			preparedStmt.setString(8, sex);
 
-			String query = "insert into user ('userID','username', 'password', 'email', 'address', 'phoneNo', 'age', 'sex')"
-					+ "values (?,?,?,?,?,?,?,?)";
-
-			PreparedStatement ps = con.prepareStatement(query);
-
-			ps.setInt(1, 0);
-			ps.setString(2, username);
-			ps.setString(3, password);
-			ps.setString(4, email);
-			ps.setString(5, address);
-			ps.setString(6, phoneNo);
-			ps.setString(7, age);
-			ps.setString(8, sex);
-			ps.execute();
+			// execute the statement
+			preparedStmt.execute();
 			con.close();
-
-			output = "Inserted Successfully";
-
+			output = "Inserted successfully";
 		} catch (Exception e) {
-			output = "Error while inserting the user";
+			output = "Error while inserting the user.";
 			System.err.println(e.getMessage());
 		}
 		return output;
