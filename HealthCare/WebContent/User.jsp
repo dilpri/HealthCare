@@ -25,6 +25,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>User Management</title>
+<link rel="stylesheet" href="Views/bootstrap.min.css">
 </head>
 <body>
 	<h1>Users Management</h1>
