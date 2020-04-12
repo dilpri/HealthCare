@@ -36,7 +36,7 @@
 			name="address" type="text"><br> Phone No : <input
 			name="phoneNo" type="text"><br> Age : <input name="age"
 			type="text"><br> Sex : <input name="sex" type="text"><br>
-		<input name="btnSubmit" type="submit" value="Save">
+		<input class="btn btn-success" name="btnSubmit" type="submit" value="Save">
 	</form>
 	<%
 		out.print(session.getAttribute("statusMsg"));
