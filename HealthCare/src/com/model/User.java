@@ -130,34 +130,55 @@ public class User {
 		return output;
 	}
 
+	/*
+	 * public String updateUser(String userID, String username, String password,
+	 * String email, String address, String phoneNo, String age, String sex) {
+	 * String output = ""; try { Connection con = connect();
+	 * 
+	 * if (con == null) { return
+	 * "Error while connecting to the database for updating"; }
+	 * 
+	 * String query =
+	 * "UPDATE user SET username=?,password=?,email=?,address=?,phoneNo=?,age=?,sex=? WHERE userID=?"
+	 * ; PreparedStatement ps = con.prepareStatement(query);
+	 * 
+	 * ps.setString(1, username); ps.setString(2, password); ps.setString(3, email);
+	 * ps.setString(4, address); ps.setString(5, phoneNo); ps.setString(6, age);
+	 * ps.setString(7, sex); ps.setInt(5, Integer.parseInt(userID));
+	 * 
+	 * ps.execute(); con.close(); output = "Updated successfully";
+	 * 
+	 * } catch (Exception e) { output = "Error while updating the user";
+	 * System.err.println(e.getMessage()); } return output; }
+	 */
+
 	public String updateUser(String userID, String username, String password, String email, String address,
 			String phoneNo, String age, String sex) {
 		String output = "";
 		try {
 			Connection con = connect();
-
 			if (con == null) {
-				return "Error while connecting to the database for updating";
+				return "Error while connecting to the database for updating.";
 			}
-
+			// create a prepared statement
 			String query = "UPDATE user SET username=?,password=?,email=?,address=?,phoneNo=?,age=?,sex=? WHERE userID=?";
-			PreparedStatement ps = con.prepareStatement(query);
 
-			ps.setString(1, username);
-			ps.setString(2, password);
-			ps.setString(3, email);
-			ps.setString(4, address);
-			ps.setString(5, phoneNo);
-			ps.setString(6, age);
-			ps.setString(7, sex);
-			ps.setInt(5, Integer.parseInt(userID));
-
-			ps.execute();
+			PreparedStatement preparedStmt = con.prepareStatement(query);
+			// binding values
+			preparedStmt.setString(1, username);
+			preparedStmt.setString(2, password);
+			preparedStmt.setString(3, email);
+			preparedStmt.setString(4, address);
+			preparedStmt.setString(5, phoneNo);
+			preparedStmt.setString(6, age);
+			preparedStmt.setString(7, sex);
+			preparedStmt.setInt(8, Integer.parseInt(userID));
+			// execute the statement
+			preparedStmt.execute();
 			con.close();
 			output = "Updated successfully";
-
 		} catch (Exception e) {
-			output = "Error while updating the user";
+			output = "Error while updating the user.";
 			System.err.println(e.getMessage());
 		}
 		return output;
