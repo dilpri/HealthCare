@@ -90,7 +90,7 @@ public class User {
 				return "Error while connecting the database for reading";
 			}
 
-			output = "<table border=\"1\"><tr><th>User name</th><th>Password</th><th>Email</th><th>Address</th><th>Phone No</th><th>Age</th><th>Sex</th></tr>";
+			output = "<table border=\"1\"><tr><th>User name</th><th>Password</th><th>Email</th><th>Address</th><th>Phone No</th><th>Age</th><th>Sex</th><th>Update</th><th>Remove</th></tr>";
 
 			String query = "select * from user";
 			Statement stmt = con.createStatement();
@@ -106,7 +106,8 @@ public class User {
 				String age = rs.getString("age");
 				String sex = rs.getString("sex");
 
-				output += "<tr><td>" + username + "</td>";
+				output += "<tr><td><input id=\"hidUserIDUpdate\" name =\"hidUserIDUpdate\" type=\"hidden\" value=\""
+						+ userID + "\">" + username + "</td>";
 				output += "<td>" + password + "</td>";
 				output += "<td>" + email + "</td>";
 				output += "<td>" + address + "</td>";
@@ -114,10 +115,11 @@ public class User {
 				output += "<td>" + age + "</td>";
 				output += "<td>" + sex + "</td>";
 
-				output += "<td><input name=\"btnUpdate\" type =\"button\" value = \"Update\" class = \"btn btn-secondary\"></td>"
+				output += "<td><input name=\"btnUpdate\" type =\"button\" value = \"Update\" class = \"btnUpdate btn btn-secondary\"></td>"
 						+ "<td><form method=\"post\" action=\"User.jsp\">"
 						+ "<input name=\"btnRemove\" type=\"submit\" value=\"Remove\"class=\"btn btn-danger\">"
-						+ "<input name=\"userID\" type=\"hidden\" value=\"" + userID + "\">" + "</form></td></tr>";
+						+ "<input name=\"hidUserIDDelete\" type=\"hidden\" value=\"" + userID + "\">"
+						+ "</form></td></tr>";
 
 			}
 			con.close();
