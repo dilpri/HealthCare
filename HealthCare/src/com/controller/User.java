@@ -214,7 +214,7 @@ public class User {
 			con.close();
 			output = "Deleted successfully";
 		} catch (Exception e) {
-			output = "Error while deleting the item.";
+			output = "Error while deleting the user.";
 			System.err.println(e.getMessage());
 		}
 		return output;

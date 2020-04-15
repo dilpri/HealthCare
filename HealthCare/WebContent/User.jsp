@@ -4,7 +4,7 @@
 
 
 <%
-	//Insert item---------------------------------
+	//Insert user---------------------------------
 	if (request.getParameter("username") != null) {
 		User userObj = new User();
 		String stsMsg = userObj.insertUser(request.getParameter("username"), request.getParameter("password"),
@@ -12,7 +12,7 @@
 				request.getParameter("age"), request.getParameter("sex"));
 		session.setAttribute("statusMsg", stsMsg);
 	}
-	//Delete item----------------------------------
+	//Delete user---------------------------------
 	if (request.getParameter("userID") != null) {
 		User userObj = new User();
 		String stsMsg = userObj.deleteUser(request.getParameter("userID"));
