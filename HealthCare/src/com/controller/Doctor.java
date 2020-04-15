@@ -1,4 +1,4 @@
-package com.model;
+package com.controller;
 
 public class Doctor {
 

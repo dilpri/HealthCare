@@ -14,9 +14,9 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.parser.Parser;
 
+import com.controller.User;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import com.model.User;
 
 @Path("/Users")
 public class UserService {
