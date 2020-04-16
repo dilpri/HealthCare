@@ -35,7 +35,7 @@ public class AppointmentService {
 		return output;
 	}
 	
-	/*@PUT
+	@PUT
 	@Path("/")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.TEXT_PLAIN)
@@ -49,8 +49,7 @@ public class AppointmentService {
 	
 		String output = appoinmentObj.updateAppointment(appointmentID, appointmentDate,appointmentTime);
 		return output;
-	}*/
-	
+	}
 	@DELETE
 	@Path("/")
 	@Consumes(MediaType.APPLICATION_XML)
