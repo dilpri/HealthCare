@@ -35,8 +35,9 @@ public class UserService {
 	@Produces(MediaType.TEXT_PLAIN)
 	public String insertUser(@FormParam("username") String username, @FormParam("password") String password,
 			@FormParam("email") String email, @FormParam("address") String address,
-			@FormParam("phoneNo") String phoneNo, @FormParam("age") String age, @FormParam("sex") String sex) {
-		String output = userObj.insertUser(username, password, email, address, phoneNo, age, sex);
+			@FormParam("phoneNo") String phoneNo, @FormParam("age") String age, @FormParam("sex") String sex,
+			@FormParam("userType") String userType) {
+		String output = userObj.insertUser(username, password, email, address, phoneNo, age, sex, userType);
 		return output;
 	}
 
@@ -56,7 +57,8 @@ public class UserService {
 		String phoneNo = userObject.get("phoneNo").getAsString();
 		String age = userObject.get("age").getAsString();
 		String sex = userObject.get("sex").getAsString();
-		String output = userObj.updateUser(userID, username, password, email, address, phoneNo, age, sex);
+		String userType = userObject.get("userType").getAsString();
+		String output = userObj.updateUser(userID, username, password, email, address, phoneNo, age, sex, userType);
 		return output;
 	}
 

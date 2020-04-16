@@ -48,7 +48,7 @@ public class User {
 
 	// Insert
 	public String insertUser(String username, String password, String email, String address, String phoneNo, String age,
-			String sex) {
+			String sex, String userType) {
 		String output = "";
 		try {
 			Connection con = connect();
@@ -56,8 +56,8 @@ public class User {
 				return "Error while connecting to the database for inserting.";
 			}
 			// create a prepared statement
-			String query = " insert into user (`userID`,`username`,`password`,`email`,`address`,`phoneNo`,`age`,`sex`)"
-					+ " values (?, ?, ?, ?, ?, ?, ?, ?)";
+			String query = " insert into user (`userID`,`username`,`password`,`email`,`address`,`phoneNo`,`age`,`sex`,`userType`)"
+					+ " values (?, ?, ?, ?, ?, ?, ?, ?,?)";
 			PreparedStatement preparedStmt = con.prepareStatement(query);
 			// binding values
 			preparedStmt.setInt(1, 0);
@@ -68,7 +68,7 @@ public class User {
 			preparedStmt.setString(6, phoneNo);
 			preparedStmt.setString(7, age);
 			preparedStmt.setString(8, sex);
-
+			preparedStmt.setString(9, userType);
 			// execute the statement
 			preparedStmt.execute();
 			con.close();
@@ -90,7 +90,7 @@ public class User {
 				return "Error while connecting the database for reading";
 			}
 
-			output = "<table border=\"1\"><tr><th>User name</th><th>Password</th><th>Email</th><th>Address</th><th>Phone No</th><th>Age</th><th>Sex</th><th>Update</th><th>Remove</th></tr>";
+			output = "<table border=\"1\"><tr><th>User name</th><th>Password</th><th>Email</th><th>Address</th><th>Phone No</th><th>Age</th><th>Sex</th><th>User Type</th><th>Update</th><th>Remove</th></tr>";
 
 			String query = "select * from user";
 			Statement stmt = con.createStatement();
@@ -105,6 +105,7 @@ public class User {
 				String phoneNo = rs.getString("phoneNo");
 				String age = rs.getString("age");
 				String sex = rs.getString("sex");
+				String userType = rs.getString("userType");
 
 				output += "<tr><td><input id=\"hidUserIDUpdate\" name =\"hidUserIDUpdate\" type=\"hidden\" value=\""
 						+ userID + "\">" + username + "</td>";
@@ -114,6 +115,7 @@ public class User {
 				output += "<td>" + phoneNo + "</td>";
 				output += "<td>" + age + "</td>";
 				output += "<td>" + sex + "</td>";
+				output += "<td>" + userType + "</td>";
 
 				output += "<td><input name=\"btnUpdate\" type =\"button\" value = \"Update\" class = \"btnUpdate btn btn-secondary\"></td>"
 						+ "<td><form method=\"post\" action=\"User.jsp\">"
@@ -155,7 +157,7 @@ public class User {
 	 */
 
 	public String updateUser(String userID, String username, String password, String email, String address,
-			String phoneNo, String age, String sex) {
+			String phoneNo, String age, String sex, String userType) {
 		String output = "";
 		try {
 			Connection con = connect();
@@ -174,7 +176,8 @@ public class User {
 			preparedStmt.setString(5, phoneNo);
 			preparedStmt.setString(6, age);
 			preparedStmt.setString(7, sex);
-			preparedStmt.setInt(8, Integer.parseInt(userID));
+			preparedStmt.setString(8, userType);
+			preparedStmt.setInt(9, Integer.parseInt(userID));
 			// execute the statement
 			preparedStmt.execute();
 			con.close();

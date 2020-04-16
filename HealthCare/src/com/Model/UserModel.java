@@ -68,6 +68,4 @@ public class UserModel implements Serializable {
 		this.lastModified = lastModified;
 	}
 
-	// Getters and setters
-
 }

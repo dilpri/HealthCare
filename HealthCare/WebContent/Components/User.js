@@ -31,6 +31,7 @@ $(document).on("click", ".btnUpdate", function (event) {
 	$("#phoneNo").val($(this).closest("tr").find('td:eq(4)').text());
 	$("#age").val($(this).closest("tr").find('td:eq(5)').text());
 	$("#sex").val($(this).closest("tr").find('td:eq(6)').text());
+	$("#userType").val($(this).closest("tr").find('td:eq(7)').text());
 });
 // CLIENTMODEL=========================================================================
 function validateUserForm() {
@@ -75,6 +76,10 @@ function validateUserForm() {
 	//sex
 	if ($("#sex").val().trim() == "") {
 		return "Insert Gender.";
+	}
+	//user type
+	if ($("#userType").val().trim() == "") {
+		return "Insert User Type.";
 	}
 
 	return true;
