@@ -32,7 +32,7 @@ public class Doctor {
 			}
 			// create a prepared statement
 			String query = " insert into doctor (`doctorID`,`doctorName`,`NIC`,`specialization`,`hospitalID`,`email`,`mobileNo`)"
-					+ " values (?, ?, ?, ?, (SELECT hospitalID FROM hospital WHERE hosName = ?),?,?)";
+					+ " values (?, ?, ?, ?, ?,?,?)";
 			PreparedStatement preparedStmt = con.prepareStatement(query);
 			// binding values
 			preparedStmt.setInt(1, 0);

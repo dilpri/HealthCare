@@ -12,13 +12,13 @@
 		if (request.getParameter("hidUserIDSave") == "") {
 			stsMsg = userObj.insertUser(request.getParameter("username"), request.getParameter("password"),
 					request.getParameter("email"), request.getParameter("address"),
-					request.getParameter("phoneNo"), request.getParameter("age"), request.getParameter("sex"));
+					request.getParameter("phoneNo"), request.getParameter("age"), request.getParameter("sex"),request.getParameter("userType"));
 		} else //Update
 		{
 			stsMsg = userObj.updateUser(request.getParameter("hidUserIDSave"), request.getParameter("username"),
 					request.getParameter("password"), request.getParameter("email"),
 					request.getParameter("address"), request.getParameter("phoneNo"),
-					request.getParameter("age"), request.getParameter("sex"));
+					request.getParameter("age"), request.getParameter("sex"),request.getParameter("userType"));
 		}
 
 		session.setAttribute("statusMsg", stsMsg);
@@ -59,6 +59,8 @@
 						id="age" name="age" type="text"
 						class="form-control form-control-sm"><br> Sex : <input
 						id="sex" name="sex" type="text"
+						class="form-control form-control-sm"><br>User Type : <input
+						id="userType" name="userType" type="text"
 						class="form-control form-control-sm"><br> <input
 						id="btnSave" name="btnSave" type="button" value="Save"
 						class="btn btn-primary"> <input type="hidden"
