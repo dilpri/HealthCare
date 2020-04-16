@@ -1,4 +1,4 @@
-package com.Model;
+package com.controller;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -6,8 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-public class AppointmentModel {
-
+public class Appointment {
 	// A common method to connect to the DB
 	private Connection connect() {
 		Connection con = null;

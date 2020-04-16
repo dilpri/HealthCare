@@ -1,9 +1,10 @@
 package com.Service;
 
-import com.Model.AppointmentModel;
 //For REST Service
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+
+import com.controller.Appointment;
 //For JSON
 import com.google.gson.*;
 //For XML
@@ -13,16 +14,16 @@ import org.jsoup.nodes.Document;
 
 @Path("/Appointment")
 public class AppointmentService {
-	AppointmentModel appoinmentObj = new AppointmentModel();
+	Appointment appoinmentObj = new Appointment();
 	
 	
 	@GET
 	@Path("/")
 	@Produces(MediaType.TEXT_HTML)
 	public String readAppointment() {
-		return appoinmentObj.readAppointment();
+		return  appoinmentObj.readAppointment();
 	}
-	
+
 	@POST
 	@Path("/")
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
