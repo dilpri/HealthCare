@@ -1,7 +1,4 @@
-package com.Service;
-
-import model.Item;
-import model.report;
+package com.Service; 
 
 //For REST Service
 import javax.ws.rs.*;
@@ -11,6 +8,7 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.parser.Parser;
 
+import com.Model.report;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 //For JSON 
