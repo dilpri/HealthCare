@@ -8,7 +8,7 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.parser.Parser;
 
-import com.Model.report;
+import com.controller.report;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 //For JSON 
