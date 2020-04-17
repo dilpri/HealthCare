@@ -1,4 +1,4 @@
-package com.Model;
+package com.controller;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -13,9 +13,9 @@ public class report { // A common method to connect to the DB
 			Class.forName("com.mysql.jdbc.Driver");
 //Provide the correct details: DBServer/DBName, username, password
 			con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/healthcare", "root", "");
-			System.out.print("Successfully connected XXY");
+			System.out.print("Database Successfully connected");
 		} catch (Exception e) {
-			System.out.print("Database connected error XXY");
+			System.out.print("Database not connected");
 			e.printStackTrace();
 		}
 		return con;
