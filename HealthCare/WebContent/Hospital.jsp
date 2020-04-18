@@ -1,4 +1,4 @@
-<%@page import="com.controller.Hospital"%>
+<%@ page import="com.controller.Hospital" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     
@@ -36,7 +36,7 @@
 	<%
 		out.print(session.getAttribute("statusMsg"));
 	%>
-	4
+	
 	<br>
 	<%
 		Hospital hosObj = new Hospital();
