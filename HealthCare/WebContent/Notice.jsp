@@ -26,7 +26,7 @@ if (request.getParameter("noticeID") != null) {
 <body>
 
 	<h1>Notice Management</h1>
-	<p><a href = "webapi/notices">Jersey resources</a>
+	
 	
 	<form method="post" action="Notice.jsp">
 		Notice Type : <input name="noticeType" type="text"><br>

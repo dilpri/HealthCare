@@ -24,7 +24,7 @@ public class Notice {
 	}
 
 	 //Insert
-	public String insertNotice(String noticeType, String noticeDesc) {
+	public String insertNotice( String noticeType, String noticeDesc) {
 		String output = "";
 		try {
 			Connection con = connect();
@@ -32,7 +32,7 @@ public class Notice {
 				return "Error while connecting to the database for inserting.";
 			}
 			// create a prepared statement
-			String query = " insert into notices('noticeID',`noticeType`,`noticeDesc`)"
+			String query = " insert into notices (`noticeID`,`noticeType`,`noticeDesc`)"
 					+ " values (?, ?, ?)";
 			PreparedStatement preparedStmt = con.prepareStatement(query);
 			// binding values
@@ -45,7 +45,7 @@ public class Notice {
 			con.close();
 			output = "Inserted successfully";
 		} catch (Exception e) {
-			output = "Error while inserting the appointment.";
+			output = "Error while inserting the notices.";
 			System.err.println(e.getMessage());
 		}
 		return output;
